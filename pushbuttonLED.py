@@ -1,5 +1,5 @@
 # Libraries
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 from time import sleep
 
 # Set warnings off
@@ -15,6 +15,7 @@ GPIO.setup(Button, GPIO.IN)
 GPIO.setup(Led, GPIO.OUT)
 
 # control the lights
+i = 0
 while i < 10:
     if GPIO.input(Button) == GPIO.HIGH:
         GPIO.output(Led, GPIO.HIGH)
@@ -22,6 +23,7 @@ while i < 10:
         GPIO.output(Led, GPIO.LOW)
         sleep(1)
         i: int = i + 1
+        print(i)
     else:
         GPIO.output(Led, GPIO.LOW)
 
