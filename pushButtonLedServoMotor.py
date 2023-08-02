@@ -29,11 +29,6 @@ servo_channels = [0, 1, 2, 3]  # Adjust this based on your setup
 
 
 # Set the speed of the continuous rotation servo
-def set_servo_speed(channel, speed):
-    kit.continuous_servo[channel].throttle = speed
-
-
-# Function to set servo angles
 def setServoAngle(channel, angle):
     kit.servo[channel].angle = angle
     time.sleep(0.1)
@@ -42,12 +37,10 @@ def setServoAngle(channel, angle):
 # Function to stop the servo motor
 def stopServo(channel):
     kit.servo[channel].angle = None
-
-
 try:
 
     # Start the first motor
-    set_servo_speed(servo_channels[0], 1)
+    setServoAngle(servo_channels[0], 90)
     time.sleep(5)  # Run for 5 seconds
     stopServo(servo_channels[0])
 
@@ -55,7 +48,7 @@ try:
     time.sleep(5)
 
     # Start the second motor
-    set_servo_speed(servo_channels[1], 1)
+    setServoAngle(servo_channels[1], 90)
     time.sleep(5)  # Run for 5 seconds
     stopServo(servo_channels[1])
 
@@ -63,7 +56,7 @@ try:
     time.sleep(5)
 
     # Start the third motor
-    set_servo_speed(servo_channels[2], 1)
+    setServoAngle(servo_channels[2], 90)
     time.sleep(5)  # Run for 5 seconds
     stopServo(servo_channels[2])
 
@@ -71,7 +64,7 @@ try:
     time.sleep(5)
 
     # Start the fourth motor
-    set_servo_speed(servo_channels[3], 1)
+    setServoAngle(servo_channels[3], 90)
     time.sleep(5)  # Run for 5 seconds
     stopServo(servo_channels[3])
 
