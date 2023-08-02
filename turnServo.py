@@ -1,7 +1,7 @@
 # Libraries
 
 from adafruit_servokit import ServoKit
-from time import time
+import time
 
 # Initialize the servo driver HAT
 kit = ServoKit(channels=16)
