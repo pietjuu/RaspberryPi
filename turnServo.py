@@ -1,7 +1,7 @@
 # Libraries
 
 from adafruit_servokit import ServoKit
-from time import sleep, time
+from time import time
 
 # Initialize the servo driver HAT
 kit = ServoKit(channels=16)
@@ -17,11 +17,16 @@ def set_servo_angle(channel, angle):
 
 
 try:
-    # Rotate the servo motors
+    # Set servo motors to neutral position (90 degrees)
     for channel in servo_channels:
-        set_servo_angle(channel, 0)  # Rotate to 0 degrees
-        set_servo_angle(channel, 90)  # Rotate to 90 degrees
-        set_servo_angle(channel, 180)  # Rotate to 180 degrees
+        set_servo_angle(channel, 90)
+
+    # Keep the servos in the neutral position for a few seconds
+    time.sleep(5)
+
+    # Reset servo positions to neutral before exiting
+    for channel in servo_channels:
+        set_servo_angle(channel, 90)
 
 except KeyboardInterrupt:
     # Reset servo positions to 90 degrees before exiting
