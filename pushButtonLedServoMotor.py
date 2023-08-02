@@ -24,7 +24,7 @@ GPIO.setup(Led, GPIO.OUT)
 # Initialize the servo driver HAT
 kit = ServoKit(channels=16)
 
-# Specify the channels for your continuous rotation servos
+# Specify the channels for your servos
 servo_channels = [0, 1, 2, 3]  # Adjust this based on your setup
 
 
@@ -33,12 +33,22 @@ def set_servo_speed(channel, speed):
     kit.continuous_servo[channel].throttle = speed
 
 
-# Stop the continuous rotation servo
+# Stop both continuous rotation and standard servos
 def stop_servo(channel):
     kit.continuous_servo[channel].throttle = 0
+    kit.servo[channel].angle = None
 
 
 try:
+    # Turn on LED for 20 seconds when button is pressed
+    if GPIO.input(Button) == GPIO.HIGH:
+        GPIO.output(Led, GPIO.HIGH)
+        time.sleep(20)
+        GPIO.output(Led, GPIO.LOW)
+
+    # Wait 5 seconds
+    time.sleep(5)
+
     # Start the first motor
     set_servo_speed(servo_channels[0], 1)
     time.sleep(5)  # Run for 5 seconds
