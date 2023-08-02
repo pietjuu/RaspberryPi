@@ -56,10 +56,12 @@ def rotateServo():
     try:
         # Start the first motor forward
         setServoAngle(servo_channels[0], 90, "forward")
+        print("forward")
         time.sleep(5)  # Run for 5 seconds
 
         # Rotate the first motor backward
         setServoSpeed(servo_channels[0], 1, "backward")
+        print("backward")
         time.sleep(2)  # Run for 2 seconds
         stopServo(servo_channels[0])
 
