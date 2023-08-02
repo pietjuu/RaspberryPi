@@ -52,8 +52,14 @@ def rotateServo():
             set_servo_speed(servo_channel, -1)
             time.sleep(2)  # Run for 2 seconds
 
+        # Stop the servo motors
+        for channel in servo_channels:
+            stop_servo(channel)
+
     finally:
         # Stop the servo before exiting
-        stop_servo(servo_channels)
+        for channel in servo_channels:
+            stop_servo(channel)
+
 
 rotateServo()
