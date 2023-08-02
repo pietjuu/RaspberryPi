@@ -51,12 +51,11 @@ def stopServo(channel):
     kit.servo[channel].angle = None
 
 
-# function to rotate servo motors
 # Function to rotate servo motors
 def rotateServo():
     try:
         i = 0
-        while i > 5:
+        while i < 5:
             # Start the first motor forward
             setServoAngle(servo_channels[0], 45, "forward")
             print("forward")
@@ -72,5 +71,6 @@ def rotateServo():
         # Stop all motors before exiting
         for channel in servo_channels:
             stopServo(channel)
+
 
 rotateServo()
