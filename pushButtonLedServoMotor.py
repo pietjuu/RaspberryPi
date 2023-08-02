@@ -57,7 +57,7 @@ try:
     # Start the second motor
     set_servo_speed(servo_channels[1], 1)
     time.sleep(5)  # Run for 5 seconds
-    stop_servo(servo_channels[1])
+    stopServo(servo_channels[1])
 
     # Wait 5 seconds
     time.sleep(5)
@@ -65,7 +65,7 @@ try:
     # Start the third motor
     set_servo_speed(servo_channels[2], 1)
     time.sleep(5)  # Run for 5 seconds
-    stop_servo(servo_channels[2])
+    stopServo(servo_channels[2])
 
     # Wait 5 seconds
     time.sleep(5)
@@ -73,9 +73,9 @@ try:
     # Start the fourth motor
     set_servo_speed(servo_channels[3], 1)
     time.sleep(5)  # Run for 5 seconds
-    stop_servo(servo_channels[3])
+    stopServo(servo_channels[3])
 
 finally:
     # Stop all motors before exiting
     for channel in servo_channels:
-        stop_servo(channel)
+        stopServo(channel)
