@@ -36,6 +36,7 @@ def set_servo_speed(channel, speed):
 # Stop the continuous rotation servo
 def stop_servo(channel):
     kit.continuous_servo[channel].throttle = 0
+    print("stop_servo")
 
 
 def rotateServo():
