@@ -16,6 +16,7 @@ def set_servo_angle(channel, angle):
     time.sleep(0.1)
 
 
+# Reset servo positions to neutral before exiting
 try:
     # Set servo motors to neutral position (90 degrees)
     for channel in servo_channels:
@@ -24,11 +25,7 @@ try:
     # Keep the servos in the neutral position for a few seconds
     time.sleep(5)
 
-    # Reset servo positions to neutral before exiting
-    for channel in servo_channels:
-        set_servo_angle(channel, 90)
-
-except KeyboardInterrupt:
+finally:
     # Reset servo positions to 90 degrees before exiting
     for channel in servo_channels:
         set_servo_angle(channel, 90)
