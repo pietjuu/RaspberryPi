@@ -68,3 +68,5 @@ def rotateServo():
         for channel in servo_channels:
             stopServo(channel)
 
+
+rotateServo()
