@@ -67,6 +67,7 @@ def rotateServo():
             print("backward")
             time.sleep(5)  # Run for 5 seconds
             i = i + 1
+            print(i)
     finally:
         # Stop all motors before exiting
         for channel in servo_channels:
