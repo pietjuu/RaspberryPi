@@ -52,23 +52,23 @@ def stopServo(channel):
 
 
 # function to rotate servo motors
+# Function to rotate servo motors
 def rotateServo():
     try:
-        # Start the first motor forward
-        setServoAngle(servo_channels[0], 90, "forward")
-        print("forward")
-        time.sleep(5)  # Run for 5 seconds
+        while True:
+            # Start the first motor forward
+            setServoAngle(servo_channels[0], 45, "forward")
+            print("forward")
+            time.sleep(5)  # Run for 5 seconds
 
-        # Rotate the first motor backward
-        setServoSpeed(servo_channels[0], 1, "backward")
-        print("backward")
-        time.sleep(2)  # Run for 2 seconds
-        stopServo(servo_channels[0])
+            # Rotate the first motor backward
+            setServoAngle(servo_channels[0], 45, "backward")
+            print("backward")
+            time.sleep(5)  # Run for 5 seconds
 
     finally:
         # Stop all motors before exiting
         for channel in servo_channels:
             stopServo(channel)
-
 
 rotateServo()
