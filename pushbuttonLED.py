@@ -14,3 +14,13 @@ Led = 24
 GPIO.setup(Button, GPIO.IN)
 GPIO.setup(Led, GPIO.OUT)
 
+# control the lights
+while True:
+    if GPIO.input(Button) == GPIO.HIGH:
+        GPIO.output(Led, GPIO.HIGH)
+        sleep(1)
+        GPIO.output(Led, GPIO.LOW)
+        sleep(1)
+    else:
+        GPIO.output(Led, GPIO.LOW)
+
