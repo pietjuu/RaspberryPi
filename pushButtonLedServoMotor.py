@@ -33,26 +33,23 @@ def set_servo_speed(channel, speed):
     kit.continuous_servo[channel].throttle = speed
 
 
-# Stop both continuous rotation and standard servos
-def stop_servo(channel):
-    kit.continuous_servo[channel].throttle = 0
+# Function to set servo angles
+def setServoAngle(channel, angle):
+    kit.servo[channel].angle = angle
+    time.sleep(0.1)
+
+
+# Function to stop the servo motor
+def stopServo(channel):
     kit.servo[channel].angle = None
 
 
 try:
-    # Turn on LED for 20 seconds when button is pressed
-    if GPIO.input(Button) == GPIO.HIGH:
-        GPIO.output(Led, GPIO.HIGH)
-        time.sleep(20)
-        GPIO.output(Led, GPIO.LOW)
-
-    # Wait 5 seconds
-    time.sleep(5)
 
     # Start the first motor
     set_servo_speed(servo_channels[0], 1)
     time.sleep(5)  # Run for 5 seconds
-    stop_servo(servo_channels[0])
+    stopServo(servo_channels[0])
 
     # Wait 5 seconds
     time.sleep(5)
