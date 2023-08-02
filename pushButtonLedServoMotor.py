@@ -28,6 +28,11 @@ kit = ServoKit(channels=16)
 servo_channels = [0, 1, 2, 3]  # Adjust this based on your setup
 
 
+def setServoAngle(channel, angle):
+    kit.servo[channel].angle = angle
+    time.sleep(0.1)
+
+
 # Set the speed of the continuous rotation servo
 def set_servo_speed(channel, speed):
     kit.continuous_servo[channel].throttle = speed
@@ -35,7 +40,9 @@ def set_servo_speed(channel, speed):
 
 # Stop the continuous rotation servo
 def stop_servo(channel):
-    kit.servo[channel].angle = None
+    for channel in servo_channels:
+        setServoAngle(channel, 90)
+
     print("stop_servo")
 
 
