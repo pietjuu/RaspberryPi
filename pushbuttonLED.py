@@ -15,12 +15,13 @@ GPIO.setup(Button, GPIO.IN)
 GPIO.setup(Led, GPIO.OUT)
 
 # control the lights
-while True:
+while i < 10:
     if GPIO.input(Button) == GPIO.HIGH:
         GPIO.output(Led, GPIO.HIGH)
         sleep(1)
         GPIO.output(Led, GPIO.LOW)
         sleep(1)
+        i = i + 1
     else:
         GPIO.output(Led, GPIO.LOW)
 
