@@ -55,3 +55,5 @@ def rotateServo():
     finally:
         # Stop the servo before exiting
         stop_servo(servo_channels)
+
+rotateServo()
