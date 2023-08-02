@@ -21,7 +21,7 @@ while i < 10:
         sleep(1)
         GPIO.output(Led, GPIO.LOW)
         sleep(1)
-        i = i + 1
+        i: int = i + 1
     else:
         GPIO.output(Led, GPIO.LOW)
 
