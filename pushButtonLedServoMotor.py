@@ -104,4 +104,3 @@ def rotateServo():
 
 rotateServo()
 
-rotateServo()
