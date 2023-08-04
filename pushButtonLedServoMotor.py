@@ -78,10 +78,9 @@ def rotateServo():
 
 
 def startServo(direction):
-    # Start all motors forward
     for channel in servo_channels:
         setServoAngle(channel, 45, direction)
-        print("forward")
+        print(direction)
 
 
 # Function to rotate servo motors
