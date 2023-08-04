@@ -50,6 +50,7 @@ def setServoSpeed(channel, speed, direction):
 def stopServo(channel):
     kit.servo[channel].angle = None
 
+
 '''
 # Function to rotate servo motors
 def rotateServo():
@@ -76,23 +77,22 @@ def rotateServo():
 '''
 
 
+def startServo(direction):
+    # Start all motors forward
+    for channel in servo_channels:
+        setServoAngle(channel, 45, direction)
+        print("forward")
+
+
 # Function to rotate servo motors
 def rotateServo():
     try:
         i = 0
         while i < 5:
-            # Start all motors forward
-            for channel in servo_channels:
-                setServoAngle(channel, 45, "forward")
-                print("forward")
-
+            startServo("forward")
             time.sleep(5)  # Run for 5 seconds
-
             # Rotate all motors backward
-            for channel in servo_channels:
-                setServoAngle(channel, 45, "backward")
-                print("backward")
-
+            startServo("backward")
             time.sleep(5)  # Run for 5 seconds
             i = i + 1
             print(i)
@@ -103,4 +103,3 @@ def rotateServo():
 
 
 rotateServo()
-
