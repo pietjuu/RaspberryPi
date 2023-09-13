@@ -25,7 +25,7 @@ GPIO.setup(Led, GPIO.OUT)
 kit = ServoKit(channels=16)
 
 # Specify the channels for your servos
-servo_channels = [0, 1, 2, 3]  # Adjust this based on your setup
+servo_channels = [0, 1, 2, 3]
 
 
 # Function to set servo angles and directions
@@ -101,4 +101,5 @@ def rotateServo():
             stopServo(channel)
 
 
+# execute the function
 rotateServo()
